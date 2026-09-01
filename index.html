@@ -204,6 +204,26 @@
   .gallery-grid figcaption{font-size:.74rem;color:var(--muted);text-align:center;padding:8px 4px;letter-spacing:.03em;text-transform:uppercase;}
   @media (max-width:760px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
 
+  .phone-gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:16px;max-width:560px;}
+  .phone-gallery figure{margin:0;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s, transform .2s;}
+  .phone-gallery figure:hover{border-color:rgba(110,231,216,.4);transform:translateY(-2px);}
+  .phone-gallery img{width:100%;height:auto;display:block;}
+  .phone-gallery figcaption{font-size:.72rem;color:var(--muted);text-align:center;padding:6px 4px;}
+  @media (max-width:600px){.phone-gallery{grid-template-columns:repeat(3,1fr);}}
+
+  .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:900px){.mini-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.mini-grid{grid-template-columns:1fr;}}
+  .mini-card{background:linear-gradient(180deg, var(--card-2), var(--card));border:1px solid var(--border);border-radius:18px;padding:24px;display:flex;flex-direction:column;transition:border-color .2s ease, transform .2s ease;}
+  .mini-card:hover{border-color:rgba(110,231,216,.35);}
+  .mini-card .shot{border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:16px;background:#fff;}
+  .mini-card .shot img{width:100%;height:auto;display:block;}
+  .mini-card h3{margin:0 0 8px;font-family:var(--serif-display);font-weight:600;font-size:1.08rem;letter-spacing:-0.01em;}
+  .mini-card p{color:#d3dae4;font-size:.9rem;margin:0 0 14px;flex-grow:1;}
+  .mini-card .stack-row{margin-top:0;margin-bottom:16px;}
+  .mini-card .links-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;}
+  .mini-card .links-row a{font-size:.84rem;font-weight:600;display:inline-flex;align-items:center;gap:6px;}
+
   .cert-card{margin-top:18px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:16px;padding:18px;}
   .cert-thumb{display:block;width:200px;flex-shrink:0;border-radius:10px;overflow:hidden;border:1px solid var(--border);box-shadow:0 20px 40px -18px rgba(0,0,0,.7);transition:transform .25s ease, border-color .25s ease;}
   .cert-thumb:hover{transform:translateY(-4px) scale(1.02);border-color:rgba(110,231,216,.45);}
@@ -242,6 +262,7 @@
       <a href="#ip">Patents &amp; Design</a>
       <a href="#awards">Awards</a>
       <a href="#projects">Projects</a>
+      <a href="#other-projects">Other Projects</a>
       <a href="#contact">Contact</a>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -257,6 +278,7 @@
   <a href="#ip">Patents &amp; Design</a>
   <a href="#awards">Awards</a>
   <a href="#projects">Projects</a>
+  <a href="#other-projects">Other Projects</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -517,9 +539,10 @@
           <span class="chip">MobileNetV3</span><span class="chip">CBAM Attention</span><span class="chip">Android</span>
         </div>
 
-        <div class="media-placeholder">
-          <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
-          Screenshots/demo slot &mdash; send a few screenshots or a short screen recording once you have them and I'll embed them here.
+        <div class="phone-gallery">
+          <figure><img src="assets/bha/bha-capture-empty.jpg" alt="Building Health Assessment app — capture screen before a photo is taken" loading="lazy"><figcaption>Capture</figcaption></figure>
+          <figure><img src="assets/bha/bha-capture-filled.jpg" alt="Building Health Assessment app — capture screen with a building photo taken" loading="lazy"><figcaption>Photo taken</figcaption></figure>
+          <figure><img src="assets/bha/bha-results.jpg" alt="Building Health Assessment app — AI analysis results showing health score, risk level, predicted lifespan, and maintenance recommendations" loading="lazy"><figcaption>Results</figcaption></figure>
         </div>
       </div>
 
@@ -527,10 +550,99 @@
         <h4>Up next</h4>
         <ul>
           <li>Wire the multi-image, section-level assessment engine into the main app flow</li>
-          <li>Add real device screenshots and a demo recording</li>
           <li>Package a signed release build</li>
         </ul>
         <a class="btn ghost" style="margin-top:16px;" href="https://github.com/Faiz2602/BuildingHealthAssessment" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> View source on GitHub</a>
+      </div>
+    </div>
+
+    <div class="spotlight reveal" style="margin-top:24px;">
+      <div>
+        <span class="tag pub">Published research &middot; Android app</span>
+        <h3 style="font-family:var(--serif-display);font-size:1.4rem;margin:6px 0 12px;letter-spacing:-0.01em;">MyBraille Application &mdash; Haptic Braille Learning</h3>
+        <p style="color:#d3dae4;font-size:.97rem;margin:0 0 6px;">An Android application that turns a smartphone's touchscreen and vibration motor into an interactive Braille tactile simulator, letting a user feel a live-rendered Braille dot pattern under their finger for any letter (A&ndash;Z) or digit (0&ndash;9). Built with teammates and evaluated with visually impaired participants for recognition accuracy and usability &mdash; the basis for the IEEE SENNET-2025 paper <a href="#publications">&ldquo;A Haptic Braille Learning Application&rdquo;</a> (see Publications above).</p>
+
+        <ul class="milestones">
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Real-time haptic rendering of Braille dot patterns via touchscreen + vibration motor, felt directly under the finger</li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Full A&ndash;Z and 0&ndash;9 character set, swipe to move between characters</li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Audio cues on every character change for eyes-free, screen-reader-style navigation</li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Simple, high-contrast interface designed around accessibility rather than sighted use</li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Evaluated with visually impaired participants; results published and presented at IEEE SENNET-2025</li>
+        </ul>
+
+        <div class="stack-row">
+          <span class="chip">Android</span><span class="chip">Java</span><span class="chip">Haptics API</span>
+          <span class="chip">Accessibility</span><span class="chip">Assistive Technology</span>
+        </div>
+
+        <div class="phone-gallery">
+          <figure><img src="assets/mybraille/mybraille-home.png" alt="MyBraille app home screen showing the Braille dot pattern for the letter A" loading="lazy"><figcaption>Home</figcaption></figure>
+          <figure><img src="assets/mybraille/mybraille-digit1.jpg" alt="MyBraille app showing the Braille dot pattern for the digit 1" loading="lazy"><figcaption>Digit 1</figcaption></figure>
+          <figure><img src="assets/mybraille/mybraille-letterA.jpg" alt="MyBraille app showing the Braille dot pattern for the letter A" loading="lazy"><figcaption>Letter A</figcaption></figure>
+          <figure><img src="assets/mybraille/mybraille-letterB.jpg" alt="MyBraille app showing the Braille dot pattern for the letter B" loading="lazy"><figcaption>Letter B</figcaption></figure>
+          <figure><img src="assets/mybraille/mybraille-letterC.jpg" alt="MyBraille app showing the Braille dot pattern for the letter C" loading="lazy"><figcaption>Letter C</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="next-panel">
+        <h4>Team project</h4>
+        <ul>
+          <li>Built with Sidharth Mukherjee and Bandla Pavan Babu</li>
+          <li>Presented at the 4th IEEE International Conference on Sensors and Related Networks (SENNET-2025)</li>
+        </ul>
+        <a class="btn ghost" style="margin-top:16px;" href="#publications"><i class="fa-solid fa-book" aria-hidden="true"></i> View publication details</a>
+        <a class="btn ghost" style="margin-top:10px;" href="https://github.com/Faiz2602/MyBraille2" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> View source on GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="other-projects">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">06</span><h2 class="section-title">Other Projects</h2></div>
+    <p class="section-sub">Smaller builds and coursework — practical exercises alongside the research above.</p>
+
+    <div class="mini-grid">
+      <div class="mini-card reveal">
+        <div class="shot" id="medreminder-shot-slot">
+          <div class="media-placeholder" style="margin:0;border-radius:12px;">
+            <i class="fa-solid fa-pills" aria-hidden="true"></i>
+            Screenshot coming soon
+          </div>
+        </div>
+        <span class="tag pub" style="margin-bottom:10px;">Desktop app</span>
+        <h3>Medication Reminder</h3>
+        <p>A desktop app (Python + Tkinter) that lets you log medications with a name, dosage, and reminder time, then pops up an on-screen alert when it's time to take each one — a background thread checks the clock every 60 seconds.</p>
+        <div class="stack-row"><span class="chip">Python</span><span class="chip">Tkinter</span><span class="chip">Threading</span></div>
+        <div class="links-row">
+          <a href="https://github.com/Faiz2602/medication-reminder-app" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Source</a>
+        </div>
+      </div>
+
+      <div class="mini-card reveal">
+        <div class="shot" id="pdfscanner-shot-slot">
+          <div class="media-placeholder" style="margin:0;border-radius:12px;">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+            Screenshot coming soon
+          </div>
+        </div>
+        <span class="tag pub" style="margin-bottom:10px;">Desktop app</span>
+        <h3>PDF Research Paper Scanner</h3>
+        <p>A Tkinter desktop tool that extracts structured metadata from research-paper PDFs &mdash; title, authors and co-authors, section headings, and the full reference list &mdash; to make organizing and reviewing papers faster.</p>
+        <div class="stack-row"><span class="chip">Python</span><span class="chip">pdfplumber</span><span class="chip">Tkinter</span><span class="chip">Pillow</span></div>
+        <div class="links-row">
+          <a href="https://github.com/Faiz2602/FaizKhanProjects" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Source</a>
+        </div>
+      </div>
+
+      <div class="mini-card reveal">
+        <span class="tag pub" style="margin-bottom:10px;">Course project &middot; Linux / Shell</span>
+        <h3>Open Source Software Audit</h3>
+        <p>A structured audit of Python as an open-source project &mdash; its license, governance, and ecosystem &mdash; paired with five original Bash scripts covering system inspection, package auditing, disk/permission auditing, log analysis, and an interactive open-source manifesto generator.</p>
+        <div class="stack-row"><span class="chip">Bash</span><span class="chip">Linux</span><span class="chip">Shell Scripting</span></div>
+        <div class="links-row">
+          <a href="https://github.com/Faiz2602/oss-audit-24BCE10703" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> Source</a>
+        </div>
       </div>
     </div>
   </div>
@@ -538,7 +650,7 @@
 
 <section id="contact">
   <div class="wrap">
-    <div class="section-head"><span class="section-num">06</span><h2 class="section-title">Profiles &amp; Contact</h2></div>
+    <div class="section-head"><span class="section-num">07</span><h2 class="section-title">Profiles &amp; Contact</h2></div>
     <p class="section-sub">Reach out, or find the canonical record of this work elsewhere on the web.</p>
     <div class="profile-links">
       <a class="plink" href="mailto:faiz.24bce10703@vitbhopal.ac.in"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span class="label">faiz.24bce10703@vitbhopal.ac.in</span></a>
