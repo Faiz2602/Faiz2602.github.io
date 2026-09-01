@@ -383,6 +383,7 @@
           <a class="btn ghost" href="patent_recognition.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> View full PDF</a>
         </div>
       </div>
+      <p class="note" style="margin-top:14px;"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i> An open-source Android app implementing this crack-detection approach is available &mdash; <a href="#projects">see Current Work</a>.</p>
     </div>
 
     <div class="card reveal">
@@ -456,7 +457,7 @@
 <section id="projects">
   <div class="wrap">
     <div class="section-head"><span class="section-num">05</span><h2 class="section-title">Current Work</h2></div>
-    <p class="section-sub">A live application paired with a research-grade evaluation pipeline.</p>
+    <p class="section-sub">Live applications built on top of the research above.</p>
 
     <div class="spotlight reveal">
       <div>
@@ -493,6 +494,43 @@
           <li>Lightweight custom CNN architecture for storage-aware CCTV</li>
           <li>Prepare findings for publication</li>
         </ul>
+      </div>
+    </div>
+
+    <div class="spotlight reveal" style="margin-top:24px;">
+      <div>
+        <span class="tag pub">Open source &middot; Android app</span>
+        <h3 style="font-family:var(--serif-display);font-size:1.4rem;margin:6px 0 12px;letter-spacing:-0.01em;">Building Health Assessment &mdash; On-Device Crack Detection</h3>
+        <p style="color:#d3dae4;font-size:.97rem;margin:0 0 6px;">A mobile reference implementation of the structural crack-detection approach behind the published patent (see <a href="#ip">Patents &amp; Design Registration</a>) &mdash; an Android app that runs a PyTorch Mobile crack-detection model fully on-device, then combines the result with a building's age and material to produce a health score, risk rating, predicted remaining lifespan, and maintenance recommendations.</p>
+
+        <ul class="milestones">
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> On-device inference with a MobileNetV3 + CBAM-attention crack-detection model &mdash; no image ever leaves the phone</li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Camera capture flow feeding directly into the model via PyTorch Mobile's Android runtime</li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Health-scoring engine: crack confidence + building age + material type &rarr; health score, risk level, and predicted remaining lifespan</li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Auto-generated, prioritized maintenance recommendations</li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Verified the bundled model directly with PyTorch (<code>torch.jit.load</code>) across a range of input sizes to confirm correct, robust inference</li>
+          <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Extended multi-image assessment engine scaffolded (per-section scoring, deterioration-rate correlation) ready to wire into the main flow</li>
+        </ul>
+
+        <div class="stack-row">
+          <span class="chip">Java</span><span class="chip">Kotlin</span><span class="chip">PyTorch Mobile</span>
+          <span class="chip">MobileNetV3</span><span class="chip">CBAM Attention</span><span class="chip">Android</span>
+        </div>
+
+        <div class="media-placeholder">
+          <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
+          Screenshots/demo slot &mdash; send a few screenshots or a short screen recording once you have them and I'll embed them here.
+        </div>
+      </div>
+
+      <div class="next-panel">
+        <h4>Up next</h4>
+        <ul>
+          <li>Wire the multi-image, section-level assessment engine into the main app flow</li>
+          <li>Add real device screenshots and a demo recording</li>
+          <li>Package a signed release build</li>
+        </ul>
+        <a class="btn ghost" style="margin-top:16px;" href="https://github.com/Faiz2602/BuildingHealthAssessment" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> View source on GitHub</a>
       </div>
     </div>
   </div>
