@@ -203,6 +203,8 @@
   .fig img{width:100%;height:auto;display:block;}
   .fig figcaption{font-size:.78rem;line-height:1.6;color:var(--muted);padding:12px 18px;border-top:1px solid var(--border);}
   .fig figcaption b{color:#d3dae4;font-weight:600;}
+  .fig video{width:100%;height:auto;display:block;background:#000;}
+  .fig figcaption .meta{display:block;margin-top:7px;font-size:.72rem;opacity:.7;letter-spacing:.02em;}
   .fig-note{font-size:.72rem;color:var(--muted);opacity:.75;margin-top:7px;text-align:right;}
 
   .sub-head{font-size:.73rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:600;margin:30px 0 2px;}
@@ -512,6 +514,17 @@
         <span class="tag pub">In progress &middot; research + engineering</span>
         <h3 style="font-family:var(--serif-display);font-size:1.4rem;margin:6px 0 12px;letter-spacing:-0.01em;">Smart Storage-Aware CCTV Surveillance System</h3>
         <p style="color:#d3dae4;font-size:.97rem;margin:0 0 6px;max-width:820px;">A camera that records continuously spends almost all of its storage on nothing happening. This system watches the scene instead: it decides, frame by frame, whether anything actually moved, and commits video to disk only while something did &mdash; turning a continuous feed into a short, browsable list of events, each with its own clip and thumbnail. The live application (FastAPI + OpenCV, streamed to the browser over WebSockets) is paired with a research-oriented evaluation pipeline benchmarked on standard background-subtraction sequences, moving the work from simple motion-triggered recording toward a published, learned approach to storage-aware event detection.</p>
+
+        <div class="sub-head">Live demo</div>
+        <figure class="fig">
+          <video controls preload="metadata" playsinline poster="assets/cctv/smart-cctv-demo-poster.jpg" width="1920" height="1080">
+            <source src="assets/cctv/smart-cctv-demo.mp4" type="video/mp4">
+            Your browser cannot play embedded video &mdash; <a href="assets/cctv/smart-cctv-demo.mp4">download the demo</a> instead.
+          </video>
+          <figcaption><b>The system running end to end.</b> Detection is armed from the dashboard; the live feed streams over a WebSocket into the canvas while the panel beside it fills with thumbnails as motion events are captured. The recording closes on the output folder, where each event has become its own MP4 clip and JPEG thumbnail &mdash; a handful of short files rather than one continuous recording.
+            <span class="meta">1 min 8 s &middot; no audio &middot; captured on the development machine</span>
+          </figcaption>
+        </figure>
 
         <div class="sub-head">System architecture</div>
         <figure class="fig">
